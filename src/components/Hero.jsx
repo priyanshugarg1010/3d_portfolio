@@ -20,9 +20,12 @@ const Hero = () => {
           <h1 className={`${style.heroHeadText} text-white`}>
             Hi, I am <span className="text-[#915eff]">Priyanshu</span>
           </h1>
-          <p className={`${style.heroSubText} text-white-100`}>
-            I develop frontend web applications,
-            <br className="sm:block hidden" /> and learning backend interface
+          <p className={`${style.heroSubText} text-white-60`}>
+            <div className="text-[22px]">
+              I develope <b>Full-Stack</b> web applications, seamlessly
+              integrating frontend and backend technologies to deliver
+              user-centric digital solutions.
+            </div>
           </p>
         </div>
       </div>

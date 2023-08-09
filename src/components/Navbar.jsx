@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { style } from "../style";
 import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
+import { menu, close } from "../assets";
+import plogo from "../assets/tech/plogo.jpg";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
@@ -19,24 +20,31 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt="logo" className="w-9 h-9 object-conatain" />
+          <img src={plogo} alt="logo" className="w-9 h-9 object-conatain" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
             Priyanshu &nbsp;
             <span className="sm:block hidden">| Full-Stack Developer</span>
           </p>
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10">
-          {navLinks.map((link) => (
-            <li
-              key={link.id}
-              className={`${
-                active === link.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(link.title)}
-            >
-              <a href={`#${link.id}`}>{link.title}</a>
-            </li>
-          ))}
+          <>
+            {navLinks.map((link) => (
+              <li
+                key={link.id}
+                className={`${
+                  active === link.title ? "text-white" : "text-secondary"
+                } hover:text-white text-[18px] font-medium cursor-pointer`}
+                onClick={() => setActive(link.title)}
+              >
+                <a href={`#${link.id}`}>{link.title}</a>
+              </li>
+            ))}
+          </>
+          <li className="text-secondary font:poppins text-[18px] font-medium cursor-pointer">
+            <a href="https://linkfree.io/priyanshugarg1010" target="blank">
+              socials
+            </a>
+          </li>
         </ul>
 
         <div className="sm:hidden flex flex-1 justify-end items-center">
@@ -46,6 +54,7 @@ const Navbar = () => {
             className="w-[28px] h-[28px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
           />
+
           <div
             className={`${
               !toggle ? "hidden" : "flex"
@@ -53,20 +62,30 @@ const Navbar = () => {
              mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className="list-none flex justify-end flex-col item-start gap-4">
-              {navLinks.map((link) => (
-                <li
-                  key={link.id}
-                  className={`${
-                    active === link.title ? "text-white" : "text-secondary"
-                  } font:poppins text-[16px] font-medium cursor-pointer`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(link.title);
-                  }}
-                >
-                  <a href={`#${link.id}`}>{link.title}</a>
+              <>
+                {navLinks.map((link) => (
+                  <li
+                    key={link.id}
+                    className={`${
+                      active === link.title ? "text-white" : "text-secondary"
+                    } font:poppins text-[16px] font-medium cursor-pointer`}
+                    onClick={() => {
+                      setToggle(!toggle);
+                      setActive(link.title);
+                    }}
+                  >
+                    <a href={`#${link.id}`}>{link.title}</a>
+                  </li>
+                ))}
+                <li className="text-secondary font:poppins text-[18px] font-medium cursor-pointer ">
+                  <a
+                    href="https://linkfree.io/priyanshugarg1010"
+                    target="blank"
+                  >
+                    socials
+                  </a>
                 </li>
-              ))}
+              </>
             </ul>
           </div>
         </div>
